@@ -24,11 +24,10 @@ public class MainActivity extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        mAuth = FirebaseAuth.getInstance();
         setContentView(R.layout.activity_main);
         // [START initialize_auth]
         // Initialize Firebase Auth
-        mAuth = FirebaseAuth.getInstance();
-        // [END initialize_auth]
     }
 
     // [START on_start_check_user]
@@ -43,9 +42,9 @@ public class MainActivity extends Activity {
     }
     // [END on_start_check_user]
 
-    private void createAccount(View Button) {
+    public void createAccount(View view) {
        String email = "drogato@gmail.com";
-       String password = "1312!";
+       String password = "1312!341";
         // [START create_user_with_email]
         mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -105,7 +104,9 @@ public class MainActivity extends Activity {
         // [END send_email_verification]
     }
 
-    private void reload() { }
+    private void reload() {
+        Log.i("","non c'è nessuno");
+    }
 
     private void updateUI(FirebaseUser user) {
 
